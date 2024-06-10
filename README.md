@@ -5,6 +5,8 @@
 
 ![SUMIN's GitHub stats](https://github-readme-stats.vercel.app/api?username=SUMIN&show_icons=true&theme=radical) [![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=imgodssumming)](https://solved.ac/imgodssumming/)
 
+![mazandi profile](http://mazandi.herokuapp.com/api?handle=imgodssumming&theme=warm) 
+
 # Skill 💪
 ### Language
 ![python](https://img.shields.io/badge/python-9B82DF.svg?&style=for-the-badge&logo=python&logoColor=white)

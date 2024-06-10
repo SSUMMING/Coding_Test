@@ -3,7 +3,7 @@
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FSSUMMING&count_bg=%238FE982&title_bg=%23FF83D4&icon=&icon_color=%23FFF4AB&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
 
-![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=anuraghazra&show_icons=true&theme=radical) [![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=imgodssumming)](https://solved.ac/imgodssumming/)
+![SUMIN's GitHub stats](https://github-readme-stats.vercel.app/api?username=SUMIN&show_icons=true&theme=radical) [![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=imgodssumming)](https://solved.ac/imgodssumming/)
 
 # Skill 💪
 ### Language

@@ -1,0 +1,25 @@
+# SELECT HOUR(DATETIME) AS 'HOUR', COUNT(*) AS COUNT
+# FROM ANIMAL_OUTS
+# WHERE HOUR(DATETIME) >= 0 AND HOUR(DATETIME) < 24
+# GROUP BY HOUR(DATETIME)
+# ORDER BY 1
+
+# 시각은 7시부터 있지만 실행할 쿼리문은 0시부터 23시까지 들어가야함
+# 시각이 있는 컬럼 새로 만들기
+# WITH hour_made AS (
+#         SELECT ROW_NUMBER()OVER() -1 AS Ho  # -1 해주면 순서가 0 부터 실행
+#         FROM ANIMAL_OUTS
+#         LIMIT 24                       # limit으로 끊어주기 
+# )
+# SELECT hour_made.ho AS HOUR, COUNT(*) 
+# FROM ANIMAL_OUTS
+# GROUP BY hour_made.ho
+# ORDER BY 1
+
+SELECT HOUR, COUNT(ANIMAL_ID) AS COUNT
+FROM ( SELECT (ROW_NUMBER() OVER () - 1) AS HOUR
+       FROM INFORMATION_SCHEMA.TABLES
+       LIMIT 24) AS 24NUM_TABLE 
+     LEFT JOIN ANIMAL_OUTS ON HOUR = HOUR(DATETIME)
+GROUP BY HOUR
+ORDER BY HOUR

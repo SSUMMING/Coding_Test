@@ -1,14 +1,9 @@
-# 물고기 종류별 길이 (큰 길이 순)
-WITH len_fish AS(
-SELECT N.FISH_TYPE, MAX(LENGTH) AS max_len
-FROM FISH_INFO I
-JOIN FISH_NAME_INFO N ON I.FISH_TYPE = N.FISH_TYPE
-GROUP BY N.FISH_TYPE
+SELECT a.id, b.fish_name, a.length
+FROM fish_info a
+INNER JOIN fish_name_info b ON a.fish_type = b.fish_type
+WHERE a.length = (
+    SELECT MAX(length)
+    FROM fish_info
+    WHERE fish_type = a.fish_type
 )
-
-SELECT ID,FISH_NAME,LENGTH
-FROM FISH_INFO I
-JOIN FISH_NAME_INFO N ON I.FISH_TYPE = N.FISH_TYPE
-JOIN len_fish L ON N.FISH_TYPE = L.FISH_TYPE
-WHERE I.LENGTH = L.max_len
-ORDER BY 1;
+ORDER BY a.id;

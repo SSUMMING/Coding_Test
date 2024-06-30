@@ -1,8 +1,11 @@
 def solution(arr, k):
-    answer =[]
-    for i in range(len(arr)):
-        if k % 2 == 1:
-            answer.append(arr[i]*k)
-        else:
-            answer.append(arr[i]+k)
+    answer = []
+
+    if k % 2 == 1:
+        for i in arr:
+            answer.append(i * k)
+    else:
+        for i in arr:
+            answer.append(i + k)
+
     return answer

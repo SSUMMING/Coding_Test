@@ -1,7 +1,7 @@
 def solution(str_list, ex):
-    answer = ''
-    for i in range(len(str_list)):
-         if ex not in str_list[i]:
-                answer += str_list[i]
+    for item in str_list[:]:
+        if ex in item:
+            str_list.remove(item)
+            
+    return ''.join(str_list)
     
-    return answer

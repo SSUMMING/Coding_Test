@@ -1,0 +1,9 @@
+# 비트 연산자 &
+# D.SKILL_CODE 안에 256과 1024가 들어가는지 확인하는 쿼리 
+# python = 256, c# 1024
+
+SELECT ID,EMAIL,FIRST_NAME,LAST_NAME
+FROM DEVELOPERS D
+WHERE EXISTS (SELECT 1 FROM SKILLCODES  S
+                             WHERE D.SKILL_CODE & S.CODE=S.CODE AND S.NAME IN('Python','C#'))
+ORDER BY 1;

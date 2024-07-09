@@ -1,0 +1,4 @@
+SELECT DISTINCT athlete_id
+FROM events E
+JOIN records R ON E.id = R.event_id
+WHERE E.sport = 'Golf' 

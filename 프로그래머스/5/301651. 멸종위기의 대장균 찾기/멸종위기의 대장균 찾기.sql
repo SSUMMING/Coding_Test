@@ -1,0 +1,29 @@
+-- 기초 세대 및 각 세대의 대장균을 추적하는 서브쿼리
+WITH RECURSIVE AllGenerations AS (
+    -- 최상위 세대 (부모가 없는 대장균)
+    SELECT ID, PARENT_ID, 1 AS GENERATION
+    FROM ECOLI_DATA
+    WHERE PARENT_ID IS NULL
+
+    UNION ALL
+
+    -- 하위 세대
+    SELECT e.ID, e.PARENT_ID, g.GENERATION + 1 AS GENERATION
+    FROM ECOLI_DATA e
+    JOIN AllGenerations g ON e.PARENT_ID = g.ID
+),
+-- 자식이 없는 대장균 찾기
+NoChildren AS (
+    SELECT ID
+    FROM ECOLI_DATA
+    WHERE ID NOT IN (SELECT DISTINCT PARENT_ID FROM ECOLI_DATA WHERE PARENT_ID IS NOT NULL)
+)
+
+-- 세대별로 자식이 없는 대장균의 수를 계산
+SELECT
+    COUNT(NC.ID) AS 'COUNT',
+    AG.GENERATION
+FROM AllGenerations AG
+RIGHT JOIN NoChildren NC ON AG.ID = NC.ID
+GROUP BY AG.GENERATION
+ORDER BY AG.GENERATION;

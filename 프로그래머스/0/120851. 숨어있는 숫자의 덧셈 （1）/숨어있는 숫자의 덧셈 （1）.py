@@ -1,6 +1,8 @@
 def solution(my_string):
     answer = 0
     for item in my_string:
-        if item >= '1' and item <= '9':
+        try:
             answer += int(item)
+        except:
+            pass
     return answer
